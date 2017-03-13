@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.time.temporal.ChronoUnit;
 /**
  * Write a description of class EntradaTexto here.
  * 
@@ -23,16 +24,18 @@ public class EntradaTexto
         usuario = autor;
         mensaje = texto;
         momentoPublicacion = LocalDateTime.now();
+        cantidadMeGusta = 0;
+        comentarios = new ArrayList<>();
     }
     
     public void meGusta()
     {
-    
+        cantidadMeGusta++;
     }
     
     public void addComentario(String texto)
     {
-    
+        comentarios.add(texto);
     }
     
     public String getMensaje()
@@ -48,7 +51,34 @@ public class EntradaTexto
     public String toString()
     {
         String textoADevolver = null;
-        textoADevolver = usuario + ", " + mensaje + ", " + momentoPublicacion + ", " + cantidadMeGusta + ", " + comentarios;
+        textoADevolver += "Usuario: " + usuario + "\n";
+        textoADevolver += mensaje + "\n";
+        textoADevolver += cantidadMeGusta + " me gusta";
+        textoADevolver += "Usuario: " + usuario + "\n";
+        textoADevolver += "Usuario: " + usuario + "\n";
+        
+        long segundosQueHanpasadoDesdeCreacion = momentoPublicacion.until(LocalDateTime.now(), ChronoUnit.MINUTES);
+        long minutosQueHanpasadoDesdeCreacion = segundosQueHanpasadoDesdeCreacion / 60;
+        long segundosResiduales = segundosQueHanpasadoDesdeCreacion % 60;
+        
+        textoADevolver += "Hace: ";
+        if (minutosQueHanpasadoDesdeCreacion == 0){
+            textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
+        }
+        textoADevolver += segundosResiduales + " segundos.\n";
+        
+        if (comentarios.isEmpty()){
+            textoADevolver += " La entrada no tiene comentarios.";
+        }
+        else{
+            textoADevolver += "comentarios:\n";
+            for (String comentario : comentarios){
+                textoADevolver += comentario + "\n";
+            }
+        }
+        
+        
+        
         return textoADevolver;
     }
     

@@ -1,10 +1,5 @@
 import java.util.ArrayList;
-/**
- * Write a description of class Muro here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Muro
 {
     // instance variables - replace the example below with your own
@@ -32,8 +27,21 @@ public class Muro
     public String toString()
     {
         String textoADevolver = null;
-        textoADevolver = mensajes + ", " + fotos;
+        
+        for (EntradaTexto entrada : mensajes){
+            textoADevolver += entrada + "\n";
+        }
+        
+        for (EntradaFoto foto : fotos){
+            textoADevolver += foto + "\n";
+        }
+        
         return textoADevolver;
+    }
+    
+    public void mostrar()
+    {
+        System.out.println(this);
     }
     
     
