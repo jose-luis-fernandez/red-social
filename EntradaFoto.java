@@ -2,43 +2,22 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.time.temporal.ChronoUnit;
 
-public class EntradaFoto
+public class EntradaFoto extends Entrada
 {
     // instance variables - replace the example below with your own
-    private String usuario;
     private String urlImagen;
     private String titulo;
-    private LocalDateTime momentoPublicacion;
-    private int cantidadMeGusta;
-    private ArrayList<String> comentarios;
 
     /**
      * Constructor for objects of class EntradaFoto
      */
     public EntradaFoto(String autor, String url, String titulo)
     {
-        usuario = autor;
+        super(autor);
         urlImagen = url;
         this.titulo = titulo;
-        momentoPublicacion = LocalDateTime.now();
-        cantidadMeGusta = 0;
-        comentarios = new ArrayList<>();
     }
     
-    public void meGusta()
-    {
-        cantidadMeGusta++;
-    }
-    
-    public void unLike()
-    {
-        cantidadMeGusta--;
-    }
-    
-    public void addComentario(String texto)
-    {
-        comentarios.add(texto);
-    }
     
     public String getUrlImagen()
     {
@@ -50,22 +29,16 @@ public class EntradaFoto
         return titulo;
     }
     
-    public LocalDateTime getMomentoPublicacion()
-    {
-        return momentoPublicacion;
-    }
     
     public String toString()
     {
         String textoADevolver = null;
-        textoADevolver += "Usuario: " + usuario + "\n";
+        textoADevolver += "Usuario: " + getUsuario() + "\n";
         textoADevolver += titulo + "\n";
         textoADevolver += urlImagen + "\n";
-        textoADevolver += cantidadMeGusta + " me gusta";
-        textoADevolver += "Usuario: " + usuario + "\n";
-        textoADevolver += "Usuario: " + usuario + "\n";
+        textoADevolver += getCantidadmeGusta() + " me gusta";
         
-        long segundosQueHanpasadoDesdeCreacion = momentoPublicacion.until(LocalDateTime.now(), ChronoUnit.MINUTES);
+        long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.MINUTES);
         long minutosQueHanpasadoDesdeCreacion = segundosQueHanpasadoDesdeCreacion / 60;
         long segundosResiduales = segundosQueHanpasadoDesdeCreacion % 60;
         
@@ -75,12 +48,12 @@ public class EntradaFoto
         }
         textoADevolver += segundosResiduales + " segundos.\n";
         
-        if (comentarios.isEmpty()){
+        if (getComentarios().isEmpty()){
             textoADevolver += " La entrada no tiene comentarios.";
         }
         else{
             textoADevolver += "comentarios:\n";
-            for (String comentario : comentarios){
+            for (String comentario : getComentarios()){
                 textoADevolver += comentario + "\n";
             }
         }

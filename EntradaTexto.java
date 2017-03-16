@@ -7,35 +7,18 @@ import java.time.temporal.ChronoUnit;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EntradaTexto
+public class EntradaTexto extends Entrada
 {
     // instance variables - replace the example below with your own
-    private String usuario;
     private String mensaje;
-    private LocalDateTime momentoPublicacion;
-    private int cantidadMeGusta;
-    private ArrayList<String> comentarios;
 
     /**
      * Constructor for objects of class EntradaTexto
      */
     public EntradaTexto(String autor, String texto)
     {
-        usuario = autor;
+        super(autor);
         mensaje = texto;
-        momentoPublicacion = LocalDateTime.now();
-        cantidadMeGusta = 0;
-        comentarios = new ArrayList<>();
-    }
-    
-    public void meGusta()
-    {
-        cantidadMeGusta++;
-    }
-    
-    public void addComentario(String texto)
-    {
-        comentarios.add(texto);
     }
     
     public String getMensaje()
@@ -43,21 +26,15 @@ public class EntradaTexto
         return mensaje;
     }
     
-    public LocalDateTime getMomentoPublicacion()
-    {
-        return momentoPublicacion;
-    }
     
     public String toString()
     {
         String textoADevolver = null;
-        textoADevolver += "Usuario: " + usuario + "\n";
+        textoADevolver += "Usuario: " + getUsuario() + "\n";
         textoADevolver += mensaje + "\n";
-        textoADevolver += cantidadMeGusta + " me gusta";
-        textoADevolver += "Usuario: " + usuario + "\n";
-        textoADevolver += "Usuario: " + usuario + "\n";
+        textoADevolver += getCantidadmeGusta() + " me gusta";
         
-        long segundosQueHanpasadoDesdeCreacion = momentoPublicacion.until(LocalDateTime.now(), ChronoUnit.MINUTES);
+        long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.MINUTES);
         long minutosQueHanpasadoDesdeCreacion = segundosQueHanpasadoDesdeCreacion / 60;
         long segundosResiduales = segundosQueHanpasadoDesdeCreacion % 60;
         
@@ -67,17 +44,15 @@ public class EntradaTexto
         }
         textoADevolver += segundosResiduales + " segundos.\n";
         
-        if (comentarios.isEmpty()){
+        if (getComentarios().isEmpty()){
             textoADevolver += " La entrada no tiene comentarios.";
         }
         else{
             textoADevolver += "comentarios:\n";
-            for (String comentario : comentarios){
+            for (String comentario : getComentarios()){
                 textoADevolver += comentario + "\n";
             }
         }
-        
-        
         
         return textoADevolver;
     }
