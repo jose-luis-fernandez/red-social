@@ -1,37 +1,35 @@
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.time.temporal.ChronoUnit;
 /**
- * Write a description of class EntradaTexto here.
+ * Write a description of class EntradaUnionAGrupo here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EntradaTexto extends EntradaComentarios
+public class EntradaUnionAGrupo extends Entrada
 {
     // instance variables - replace the example below with your own
-    private String mensaje;
+    private String grupo;
 
     /**
-     * Constructor for objects of class EntradaTexto
+     * Constructor for objects of class EntradaUnionAGrupo
      */
-    public EntradaTexto(String autor, String texto)
+    public EntradaUnionAGrupo(String usuario, String grupo)
     {
-        super(autor);
-        mensaje = texto;
+        super(usuario);
+        this.grupo = grupo;
     }
     
-    public String getMensaje()
+    public String getGrupo()
     {
-        return mensaje;
+        return grupo;
     }
-    
     
     public String toString()
     {
         String textoADevolver = "";
         textoADevolver += "Usuario: " + getUsuario() + "\n";
-        textoADevolver += mensaje + "\n";
+        textoADevolver += "Se ha unido al grupo: " + grupo + "\n";
         textoADevolver += getCantidadmeGusta() + " me gusta" + "\n";
         
         long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
@@ -43,38 +41,7 @@ public class EntradaTexto extends EntradaComentarios
             textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
         }
         textoADevolver += segundosResiduales + " segundos.\n";
-        
-        if (getComentarios().isEmpty()){
-            textoADevolver += " La entrada no tiene comentarios.";
-        }
-        else{
-            textoADevolver += "comentarios:\n";
-            for (String comentario : getComentarios()){
-                textoADevolver += comentario + "\n";
-            }
-        }
         System.out.println(textoADevolver);
         return textoADevolver;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

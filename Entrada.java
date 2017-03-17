@@ -13,7 +13,6 @@ public class Entrada
     private String usuario;
     private LocalDateTime momentoPublicacion;
     private int cantidadMeGusta;
-    private ArrayList<String> comentarios;
 
     /**
      * Constructor for objects of class Entrada
@@ -23,17 +22,11 @@ public class Entrada
         this.usuario = usuario;
         momentoPublicacion = LocalDateTime.now();
         cantidadMeGusta = 0;
-        comentarios = new ArrayList<>();
     }
     
     public void meGusta()
     {
         cantidadMeGusta++;
-    }
-    
-    public void addComentario(String texto)
-    {
-        comentarios.add(texto);
     }
     
     public LocalDateTime getMomentoPublicacion()
@@ -56,10 +49,7 @@ public class Entrada
         return cantidadMeGusta;
     }
     
-    public ArrayList<String> getComentarios()
-    {
-        return comentarios;
-    }
+    
     
     
     

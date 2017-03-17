@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.time.temporal.ChronoUnit;
 
-public class EntradaFoto extends Entrada
+public class EntradaFoto extends EntradaComentarios
 {
     // instance variables - replace the example below with your own
     private String urlImagen;
@@ -32,18 +32,18 @@ public class EntradaFoto extends Entrada
     
     public String toString()
     {
-        String textoADevolver = null;
+        String textoADevolver = "";
         textoADevolver += "Usuario: " + getUsuario() + "\n";
         textoADevolver += titulo + "\n";
         textoADevolver += urlImagen + "\n";
-        textoADevolver += getCantidadmeGusta() + " me gusta";
+        textoADevolver += getCantidadmeGusta() + " me gusta" + "\n";
         
-        long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.MINUTES);
+        long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
         long minutosQueHanpasadoDesdeCreacion = segundosQueHanpasadoDesdeCreacion / 60;
         long segundosResiduales = segundosQueHanpasadoDesdeCreacion % 60;
         
         textoADevolver += "Hace: ";
-        if (minutosQueHanpasadoDesdeCreacion == 0){
+        if (minutosQueHanpasadoDesdeCreacion > 0){
             textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
         }
         textoADevolver += segundosResiduales + " segundos.\n";
@@ -57,7 +57,7 @@ public class EntradaFoto extends Entrada
                 textoADevolver += comentario + "\n";
             }
         }
-        
+        System.out.println(textoADevolver);
         return textoADevolver;
     }
     

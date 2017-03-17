@@ -5,6 +5,7 @@ public class Muro
     // instance variables - replace the example below with your own
     private ArrayList<EntradaTexto> mensajes;
     private ArrayList<EntradaFoto> fotos;
+    private ArrayList<EntradaUnionAGrupo> unionesAGrupo;
     /**
      * Constructor for objects of class Muro
      */
@@ -12,6 +13,7 @@ public class Muro
     {
         mensajes = new ArrayList<EntradaTexto>();
         fotos = new ArrayList<EntradaFoto>();
+        unionesAGrupo = new ArrayList<EntradaUnionAGrupo>();
     }
     
     public void addEntradaTexo(EntradaTexto entradaTexo)
@@ -22,6 +24,11 @@ public class Muro
     public void addEntradaFoto(EntradaFoto entradaFoto)
     {
         fotos.add(entradaFoto);
+    }
+    
+    public void addEntradaUnionAGrupo(EntradaUnionAGrupo entradaUnionAGrupo)
+    {
+        unionesAGrupo.add(entradaUnionAGrupo);
     }
     
     public String toString()
@@ -36,6 +43,9 @@ public class Muro
             textoADevolver += foto + "\n";
         }
         
+        for (EntradaUnionAGrupo unionAGrupo : unionesAGrupo){
+            textoADevolver += unionAGrupo + "\n";
+        }
         return textoADevolver;
     }
     
