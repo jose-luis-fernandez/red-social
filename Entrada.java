@@ -65,6 +65,11 @@ public class Entrada
         
     }
     
+    public int getCantidadDeDatosAsociadosALaEntrada()
+    {
+        return 0;
+    }
+    
     
     
     

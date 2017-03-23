@@ -37,6 +37,16 @@ public class EntradaUnionAGrupo extends Entrada
         System.out.println(this);
     }
     
+    public int getCantidadDeDatosAsociadosALaEntrada()
+    {
+        return 4;
+    }
+    
+    public void mostrarDatosExclusivos()
+    {
+        System.out.println(grupo);
+    }
+    
     
     
     

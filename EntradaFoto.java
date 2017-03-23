@@ -43,7 +43,15 @@ public class EntradaFoto extends EntradaComentarios
         System.out.println(this);
     }
     
+    public int getCantidadDeDatosAsociadosALaEntrada()
+    {
+        return 6;
+    }
     
+    public void mostrarDatosExclusivos()
+    {
+        System.out.println(urlImagen + "\n" + titulo);
+    }
     
     
     

@@ -39,7 +39,15 @@ public class EntradaTexto extends EntradaComentarios
         System.out.println(this);
     }
     
+    public int getCantidadDeDatosAsociadosALaEntrada()
+    {
+        return 5;
+    }
     
+    public void mostrarDatosExclusivos()
+    {
+        System.out.println(mensaje);
+    }
     
     
     
