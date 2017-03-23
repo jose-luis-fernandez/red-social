@@ -17,6 +17,14 @@ public class MuroTest
     private EntradaTexto entradaT1;
     private EntradaUnionAGrupo entradaU1;
     private Muro muro1;
+    private EntradaUnionAGrupo entradaU2;
+    private EntradaFoto entradaF2;
+    private EntradaTexto entradaT2;
+
+    
+    
+    
+    
 
     /**
      * Default constructor for test class MuroTest
@@ -37,6 +45,9 @@ public class MuroTest
         entradaT1 = new EntradaTexto("pepe", "Hola atodos");
         entradaU1 = new EntradaUnionAGrupo("pepe", "dam1");
         muro1 = new Muro();
+        entradaU2 = new EntradaUnionAGrupo("Alba", "DAM2");
+        entradaF2 = new EntradaFoto("Alba", "http://fotoDeAlba", "foto de Alba");
+        entradaT2 = new EntradaTexto("Alba", "Hola a todos de parte de Alba");
     }
 
     /**
