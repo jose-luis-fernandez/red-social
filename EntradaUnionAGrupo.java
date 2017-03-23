@@ -27,21 +27,37 @@ public class EntradaUnionAGrupo extends Entrada
     
     public String toString()
     {
-        String textoADevolver = "";
-        textoADevolver += "Usuario: " + getUsuario() + "\n";
+        String textoADevolver = super.toString();
         textoADevolver += "Se ha unido al grupo: " + grupo + "\n";
-        textoADevolver += getCantidadmeGusta() + " me gusta" + "\n";
-        
-        long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        long minutosQueHanpasadoDesdeCreacion = segundosQueHanpasadoDesdeCreacion / 60;
-        long segundosResiduales = segundosQueHanpasadoDesdeCreacion % 60;
-        
-        textoADevolver += "Hace: ";
-        if (minutosQueHanpasadoDesdeCreacion > 0){
-            textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
-        }
-        textoADevolver += segundosResiduales + " segundos.\n";
-        System.out.println(textoADevolver);
         return textoADevolver;
     }
+    
+    public void mostrar()
+    {
+        System.out.println(this);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

@@ -28,4 +28,20 @@ public class EntradaComentarios extends Entrada
     {
         return comentarios;
     }
+    
+    
+    public String toString()
+    {
+        String textoADevolver = super.toString();
+        if (getComentarios().isEmpty()){
+            textoADevolver += "La entrada no tiene comentarios.\n";
+        }
+        else{
+            textoADevolver += "comentarios:\n";
+            for (String comentario : getComentarios()){
+                textoADevolver += comentario + "\n";
+            }
+        }
+        return textoADevolver;
+    }
 }

@@ -36,7 +36,18 @@ public class Entrada
     
     public String toString()
     {
-        return "";
+        String textoADevolver = "";
+        textoADevolver += "Usuario: " + getUsuario() + "\n";
+        long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long minutosQueHanpasadoDesdeCreacion = segundosQueHanpasadoDesdeCreacion / 60;
+        long segundosResiduales = segundosQueHanpasadoDesdeCreacion % 60;
+        textoADevolver += "Hace: ";
+        if (minutosQueHanpasadoDesdeCreacion > 0){
+            textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
+        }
+        textoADevolver += segundosResiduales + " segundos.\n";
+        textoADevolver += getCantidadmeGusta() + " me gusta" + "\n";
+        return textoADevolver;
     }
     
     public String getUsuario()
@@ -47,6 +58,11 @@ public class Entrada
     public int getCantidadmeGusta()
     {
         return cantidadMeGusta;
+    }
+    
+    public void mostrar()
+    {
+        
     }
     
     
