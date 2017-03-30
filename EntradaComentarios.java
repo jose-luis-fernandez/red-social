@@ -37,11 +37,73 @@ public class EntradaComentarios extends Entrada
             textoADevolver += "La entrada no tiene comentarios.\n";
         }
         else{
-            textoADevolver += "comentarios:\n";
+            textoADevolver += "Comentarios:\n";
             for (String comentario : getComentarios()){
                 textoADevolver += comentario + "\n";
             }
         }
         return textoADevolver;
     }
+    
+    public String getHtml()
+    {
+        String textoADevolver = super.getHtml();
+        return textoADevolver;
+    }
+    
+    public String getHtmlComentarios()
+    {
+        String textoADevolver = "";
+        if (getComentarios().isEmpty()){
+            textoADevolver += "<p>La entrada no tiene comentarios.</p>\n";
+        }
+        else{
+            textoADevolver += "<p class=\"comentarios\">Comentarios:</p>\n";
+            for (String comentario : getComentarios()){
+                textoADevolver += "<p>" + comentario + "</p>\n";
+            }
+        }
+        return textoADevolver;
+    }
+    
+    public String getHtmlTiempo()
+    {
+        String textoADevolver = super.getHtmlTiempo();
+        return textoADevolver;
+    }
+    
+    public String getHtmlMeGusta()
+    {
+        String textoADevolver = super.getHtmlMeGusta();
+        return textoADevolver;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

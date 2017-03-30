@@ -70,6 +70,36 @@ public class Entrada
         return 0;
     }
     
+    public String getHtml()
+    {
+        String textoADevolver = "";
+        textoADevolver += "<p class=\"usuario\">Usuario: " + getUsuario() + "</p>\n";
+        
+        return textoADevolver;
+    }
+    
+    public String getHtmlTiempo()
+    {
+        String textoADevolver = "";
+        long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long minutosQueHanpasadoDesdeCreacion = segundosQueHanpasadoDesdeCreacion / 60;
+        long segundosResiduales = segundosQueHanpasadoDesdeCreacion % 60;
+        textoADevolver += "<p>Hace: ";
+        if (minutosQueHanpasadoDesdeCreacion > 0){
+            textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
+        }
+        textoADevolver += segundosResiduales + " segundos.</p>";
+        return textoADevolver;
+    }
+    
+    public String getHtmlMeGusta()
+    {
+        String textoADevolver = "";
+        textoADevolver += "<p>" + getCantidadmeGusta() + " me gusta" + "</p>\n";
+        return textoADevolver;
+    }
+
+    
     
     
     

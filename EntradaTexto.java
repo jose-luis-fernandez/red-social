@@ -49,6 +49,21 @@ public class EntradaTexto extends EntradaComentarios
         System.out.println(mensaje);
     }
     
+    public String getDatosExclusivos()
+    {
+        return mensaje;
+    }
+    
+    public String getHtml()
+    {
+        String textoADevolver = super.getHtml();
+        textoADevolver += "<p class=\"texto\">" + mensaje + "</p>\n";
+        textoADevolver += super.getHtmlTiempo() + "\n";
+        textoADevolver += super.getHtmlMeGusta();
+        textoADevolver += getHtmlComentarios();
+        return textoADevolver;
+    }
+    
     
     
     

@@ -53,6 +53,27 @@ public class EntradaFoto extends EntradaComentarios
         System.out.println(urlImagen + "\n" + titulo);
     }
     
+    public String getDatosExclusivos()
+    {
+        String textoADevolver = "";
+        textoADevolver += urlImagen;
+        textoADevolver += titulo;
+        return textoADevolver;
+    }
+    
+    public String getHtml()
+    {
+        String textoADevolver = super.getHtml();
+        textoADevolver += "<p class=\"texto\">" + titulo + "</p>\n";
+        textoADevolver += "<div>\n";
+        textoADevolver += "<img src=\"" + urlImagen + "\" width=\"500\">\n";
+        textoADevolver += "</div>\n";
+        textoADevolver += super.getHtmlTiempo();
+        textoADevolver += super.getHtmlMeGusta();
+        textoADevolver += getHtmlComentarios();
+        return textoADevolver;
+    }
+    
     
     
     

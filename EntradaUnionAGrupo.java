@@ -47,6 +47,20 @@ public class EntradaUnionAGrupo extends Entrada
         System.out.println(grupo);
     }
     
+    public String getDatosExclusivos()
+    {
+        return grupo;
+    }
+    
+    public String getHtml()
+    {
+        String textoADevolver = super.getHtml();
+        textoADevolver += "<p class=\"texto\">Se ha unido al grupo: " + grupo + "</p>\n";
+        textoADevolver += super.getHtmlTiempo();
+        textoADevolver += super.getHtmlMeGusta();
+        return textoADevolver;
+    }
+    
     
     
     

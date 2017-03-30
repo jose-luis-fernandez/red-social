@@ -1,0 +1,42 @@
+
+div{
+		margin-left:20%;
+		margin-right:20%;
+		margin-bottom:20px;
+		margin-top:20px;
+		padding:5px 5px;
+		border-radius: 10px 10px 10px 10px;
+}
+
+.entradaTexto{
+		background-color:#a3e4d7;
+}
+
+
+.meGusta{
+		float:right;
+		vertical-align:bottom;
+}
+
+.usuario{
+		font-size:20pt;
+}
+
+.texto{
+		text-align:center;
+		font-size:16pt;
+}
+
+.contenido{
+		background-color:  #eae7d8;
+		padding:20px 20px;
+		border-radius: 10px 10px 10px 10px;
+		margin-left:2%;
+		margin-right:2%;
+		margin-top:2%;
+		margin-bottom:2%;
+}
+
+.comentarios{
+		font-size:14pt;
+}
