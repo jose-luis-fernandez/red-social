@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EntradaComentarios extends Entrada
+public abstract class EntradaComentarios extends Entrada
 {
     // instance variables - replace the example below with your own
     private ArrayList<String> comentarios;
@@ -28,6 +28,8 @@ public class EntradaComentarios extends Entrada
     {
         return comentarios;
     }
+    
+    public abstract int getCantidadDeDatosAsociadosALaEntrada();
     
     
     public String toString()

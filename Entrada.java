@@ -7,7 +7,7 @@ import java.time.temporal.ChronoUnit;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Entrada
+public abstract class Entrada
 {
     // instance variables - replace the example below with your own
     private String usuario;
@@ -60,15 +60,9 @@ public class Entrada
         return cantidadMeGusta;
     }
     
-    public void mostrar()
-    {
-        
-    }
+    public abstract void mostrar();
     
-    public int getCantidadDeDatosAsociadosALaEntrada()
-    {
-        return 0;
-    }
+    public abstract int getCantidadDeDatosAsociadosALaEntrada();
     
     public String getHtml()
     {
@@ -88,7 +82,7 @@ public class Entrada
         if (minutosQueHanpasadoDesdeCreacion > 0){
             textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
         }
-        textoADevolver += segundosResiduales + " segundos.</p>";
+        textoADevolver += segundosResiduales + " segundos.</p>\n";
         return textoADevolver;
     }
     

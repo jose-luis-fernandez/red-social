@@ -1,21 +1,32 @@
 
-div{
+.gris{
 		margin-left:20%;
 		margin-right:20%;
-		margin-bottom:20px;
-		margin-top:20px;
+		margin-bottom:5%;
+		margin-top:5px;
 		padding:5px 5px;
 		border-radius: 10px 10px 10px 10px;
-}
-
-.entradaTexto{
 		background-color:#a3e4d7;
 }
 
+.foto{
+		margin-left:20%;
+		margin-right:20%;
+}
+
+
 
 .meGusta{
-		float:right;
-		vertical-align:bottom;
+		float: right;
+		width: 49%;
+		border:1px solid black;
+
+}
+
+.tiempo{
+		float: left;
+		width: 49%;
+		border:1px solid black;
 }
 
 .usuario{
@@ -31,12 +42,16 @@ div{
 		background-color:  #eae7d8;
 		padding:20px 20px;
 		border-radius: 10px 10px 10px 10px;
-		margin-left:2%;
-		margin-right:2%;
-		margin-top:2%;
-		margin-bottom:2%;
+		margin-left:0.5%;
+		margin-right:0.5%;
+		margin-top:.0.5%;
+		margin-bottom:0.5%;
 }
 
 .comentarios{
 		font-size:14pt;
+}
+
+body{
+		font-family: calibri;
 }

@@ -131,7 +131,7 @@ public class Muro
             archivo.write("</head>\n");
             archivo.write("<body>\n");
             for (Entrada entrada : entradas){
-                archivo.write("<div class=\"entradaTexto\">\n");
+                archivo.write("<div class=\"gris\">\n");
                 archivo.write("<div class=\"contenido\">\n");
                 archivo.write(entrada.getHtml());
                 archivo.write("</div>\n");
@@ -151,12 +151,14 @@ public class Muro
             File objetofile = new File ("output.html");
             Desktop.getDesktop().open(objetofile);
 
-     }catch (IOException ex) {
+        }catch (IOException ex) {
 
             System.out.println(ex);
 
-     }
+        }
     }
+    
+    
 
     
     

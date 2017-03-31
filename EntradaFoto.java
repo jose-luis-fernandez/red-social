@@ -65,11 +65,15 @@ public class EntradaFoto extends EntradaComentarios
     {
         String textoADevolver = super.getHtml();
         textoADevolver += "<p class=\"texto\">" + titulo + "</p>\n";
-        textoADevolver += "<div>\n";
+        textoADevolver += "<div class=\"foto\">\n";
         textoADevolver += "<img src=\"" + urlImagen + "\" width=\"500\">\n";
         textoADevolver += "</div>\n";
+        textoADevolver += "<div class=\"tiempo\">\n";
         textoADevolver += super.getHtmlTiempo();
+        textoADevolver += "</div>\n";
+        textoADevolver += "<div class=\"meGusta\">\n";
         textoADevolver += super.getHtmlMeGusta();
+        textoADevolver += "</div>\n";
         textoADevolver += getHtmlComentarios();
         return textoADevolver;
     }

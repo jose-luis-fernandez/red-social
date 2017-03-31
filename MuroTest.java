@@ -74,7 +74,7 @@ public class MuroTest
     @Before
     public void setUp()
     {
-        entradaT1 = new EntradaTexto("pepe", "Hola atodos");
+        entradaT1 = new EntradaTexto("pepe", "Hola a todos");
         entradaU1 = new EntradaUnionAGrupo("pepe", "dam1");
         muro1 = new Muro();
         entradaU2 = new EntradaUnionAGrupo("Alba", "DAM2");
@@ -85,10 +85,8 @@ public class MuroTest
         muro1.addEntrada(entradaT1);
         muro1.addEntrada(entradaU2);
         muro1.addEntrada(entradaT2);
-        entradaT1.mostrar();
         entradaT1.addComentario("Holaaaa");
         entradaT1.addComentario("Hola a ti tambien");
-        muro1.mostrar();
         entradaF3 = new EntradaFoto("pepe", "http://3.bp.blogspot.com/-R7bsoKWZ_cs/VLHH4JNkOOI/AAAAAAAAAAg/fF5aazgBts4/s1600/dalmata-580x380.jpg", "Mi perro");
         muro1.addEntrada(entradaF3);
     }

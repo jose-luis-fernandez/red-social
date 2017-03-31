@@ -36,7 +36,7 @@ public class EntradaUnionAGrupo extends Entrada
     {
         System.out.println(this);
     }
-    
+    @Override
     public int getCantidadDeDatosAsociadosALaEntrada()
     {
         return 4;
@@ -55,9 +55,16 @@ public class EntradaUnionAGrupo extends Entrada
     public String getHtml()
     {
         String textoADevolver = super.getHtml();
+        textoADevolver += "<div>\n";
         textoADevolver += "<p class=\"texto\">Se ha unido al grupo: " + grupo + "</p>\n";
+        textoADevolver += "<div class=\"tiempo\">\n";
         textoADevolver += super.getHtmlTiempo();
+        textoADevolver += "</div>\n";
+        textoADevolver += "<div class=\"meGusta\">\n";
         textoADevolver += super.getHtmlMeGusta();
+        textoADevolver += "</div>\n";
+        textoADevolver += "</div>\n";
+        
         return textoADevolver;
     }
     
