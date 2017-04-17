@@ -6,6 +6,10 @@ import java.nio.file.Files;
 import java.io.IOException;
 import java.awt.Desktop;
 import java.io.File;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.net.URL;
+
 public class Muro
 {
     // instance variables - replace the example below with your own
@@ -157,6 +161,107 @@ public class Muro
 
         }
     }
+    
+    public void mostrarMuroEnNavegador(String usuario)
+    {
+        entradas.clear();
+        try {
+            URL url = new URL("https://script.google.com/macros/s/AKfycbzHc3p1twTfyF7o0_cxSwnxSsyOemuHnSu406ly9DZIf5Ck2BA/exec?user=" + usuario);
+            Scanner sc = new Scanner(url.openStream());
+            ArrayList<String> lineasEntrada = new ArrayList<>();
+            while (sc.hasNextLine()) {
+                lineasEntrada.add(sc.nextLine());
+            }
+            
+            for (String lineaActual : lineasEntrada){
+                if (lineaActual.contains("EntradaTexto")){
+                    String linea[] = lineaActual.split(";");
+                    String nombreUsuario = linea[1];
+                    int meGusta = Integer.parseInt(linea[2]);
+                    String fechaHora[] = linea[3].split("-");
+                    String fecha[] = fechaHora[0].split("/");
+                    String hora[] = fechaHora[1].split(":");
+                    int dia = Integer.parseInt(fecha[0]);
+                    int mes = Integer.parseInt(fecha[1]);
+                    int anio = Integer.parseInt(fecha[2]);
+                    int horaEntero = Integer.parseInt(hora[0]);
+                    int minuto = Integer.parseInt(hora[1]);
+                    String texto = linea[4];
+                    ArrayList<String> pilaComentarios = new ArrayList<>();
+                    if (!linea[5].equals("Sin comentarios")){
+                        String comentarios[] = linea[5].split("%");
+                        for (String comentarioActual : comentarios){
+                            pilaComentarios.add(comentarioActual);
+                        }
+                    }
+                    Entrada entradaTexto = new EntradaTexto(nombreUsuario, meGusta, anio, mes, dia, horaEntero, minuto, texto, pilaComentarios);
+                    addEntrada(entradaTexto);
+                }
+                else if (lineaActual.contains("EntradaFoto")){
+                    String linea[] = lineaActual.split(";");
+                    String nombreUsuario = linea[1];
+                    int meGusta = Integer.parseInt(linea[2]);
+                    String fechaHora[] = linea[3].split("-");
+                    String fecha[] = fechaHora[0].split("/");
+                    String hora[] = fechaHora[1].split(":");
+                    int dia = Integer.parseInt(fecha[0]);
+                    int mes = Integer.parseInt(fecha[1]);
+                    int anio = Integer.parseInt(fecha[2]);
+                    int horaEntero = Integer.parseInt(hora[0]);
+                    int minuto = Integer.parseInt(hora[1]);
+                    String urlFoto = linea[4];
+                    String tituloFoto = linea[5];
+                    ArrayList<String> pilaComentarios = new ArrayList<>();
+                    if (!linea[6].equals("Sin comentarios")){
+                        String comentarios[] = linea[6].split("%");
+                        for (String comentarioActual : comentarios){
+                            pilaComentarios.add(comentarioActual);
+                        }
+                    }
+                    Entrada entradaFoto = new EntradaFoto(nombreUsuario, meGusta, anio, mes, dia, horaEntero, minuto, urlFoto, tituloFoto, pilaComentarios);
+                    addEntrada(entradaFoto);
+                }
+                else{
+                    String linea[] = lineaActual.split(";");
+                    String nombreUsuario = linea[1];
+                    int meGusta = Integer.parseInt(linea[2]);
+                    String fechaHora[] = linea[3].split("-");
+                    String fecha[] = fechaHora[0].split("/");
+                    String hora[] = fechaHora[1].split(":");
+                    int dia = Integer.parseInt(fecha[0]);
+                    int mes = Integer.parseInt(fecha[1]);
+                    int anio = Integer.parseInt(fecha[2]);
+                    int horaEntero = Integer.parseInt(hora[0]);
+                    int minuto = Integer.parseInt(hora[1]);
+                    String grupo = linea[4];
+                    Entrada entradaUnionAGrupo = new EntradaUnionAGrupo(nombreUsuario, meGusta, anio, mes, dia, horaEntero, minuto, grupo);
+                    addEntrada(entradaUnionAGrupo);
+                }
+            }
+            
+            sc.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        mostrarMuroEnNavegador();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 

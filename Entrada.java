@@ -24,6 +24,13 @@ public abstract class Entrada
         cantidadMeGusta = 0;
     }
     
+    public Entrada(String usuario, int meGusta, int year, int month, int dayOfMonth, int hour, int minute)
+    {
+        this.usuario = usuario;
+        cantidadMeGusta = meGusta;
+        momentoPublicacion = LocalDateTime.of(year, month, dayOfMonth, hour, minute);
+    }
+    
     public void meGusta()
     {
         cantidadMeGusta++;
@@ -76,13 +83,28 @@ public abstract class Entrada
     {
         String textoADevolver = "";
         long segundosQueHanpasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long diasQueHanpasadoDesdeCreacion = ((segundosQueHanpasadoDesdeCreacion / 60) / 60) / 24;
+        long horasQueHanpasadoDesdeCreacion = (segundosQueHanpasadoDesdeCreacion / 60) / 60;
+        long minutosResiduales = ((segundosQueHanpasadoDesdeCreacion / 60) / 60) % 60;
         long minutosQueHanpasadoDesdeCreacion = segundosQueHanpasadoDesdeCreacion / 60;
         long segundosResiduales = segundosQueHanpasadoDesdeCreacion % 60;
         textoADevolver += "<p>Hace: ";
-        if (minutosQueHanpasadoDesdeCreacion > 0){
-            textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
+        if (horasQueHanpasadoDesdeCreacion > 24){
+            textoADevolver += diasQueHanpasadoDesdeCreacion + " dias ";
         }
-        textoADevolver += segundosResiduales + " segundos.</p>\n";
+        else {
+            if (horasQueHanpasadoDesdeCreacion > 0){
+                textoADevolver += horasQueHanpasadoDesdeCreacion + " horas ";
+            }
+            else if (minutosQueHanpasadoDesdeCreacion > 0){
+                textoADevolver += minutosQueHanpasadoDesdeCreacion + " minutos ";
+            }
+            textoADevolver += minutosResiduales + " minutos ";
+            textoADevolver += segundosResiduales + " segundos.</p>\n";
+        }
+        
+        
+        
         return textoADevolver;
     }
     

@@ -19,6 +19,12 @@ public abstract class EntradaComentarios extends Entrada
         comentarios = new ArrayList<>();
     }
     
+    public EntradaComentarios(String usuario, int meGusta, int year, int month, int dayOfMonth, int hour, int minute, ArrayList<String> comentarios)
+    {
+        super(usuario, meGusta, year, month, dayOfMonth, hour, minute);
+        this.comentarios = comentarios;
+    }
+    
     public void addComentario(String texto)
     {
         comentarios.add(texto);

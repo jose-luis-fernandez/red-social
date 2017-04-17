@@ -18,15 +18,13 @@
 
 .meGusta{
 		float: right;
-		width: 49%;
-		border:1px solid black;
+		width: 49.5%;
 
 }
 
 .tiempo{
 		float: left;
-		width: 49%;
-		border:1px solid black;
+		width: 49.5%;
 }
 
 .usuario{

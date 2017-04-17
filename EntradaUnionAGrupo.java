@@ -20,6 +20,12 @@ public class EntradaUnionAGrupo extends Entrada
         this.grupo = grupo;
     }
     
+    public EntradaUnionAGrupo(String autor, int meGusta, int year, int month, int dayOfMonth, int hour, int minute, String grupo)
+    {
+        super(autor, meGusta, year, month, dayOfMonth, hour, minute);
+        this.grupo = grupo;
+    }
+    
     public String getGrupo()
     {
         return grupo;
@@ -36,6 +42,7 @@ public class EntradaUnionAGrupo extends Entrada
     {
         System.out.println(this);
     }
+    
     @Override
     public int getCantidadDeDatosAsociadosALaEntrada()
     {
