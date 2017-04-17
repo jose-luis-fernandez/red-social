@@ -69,7 +69,7 @@ public class EntradaUnionAGrupo extends Entrada
         textoADevolver += "</div>\n";
         textoADevolver += "<div class=\"meGusta\">\n";
         textoADevolver += super.getHtmlMeGusta();
-        textoADevolver += "</div>\n";
+        textoADevolver += "</div></br></br>\n";
         textoADevolver += "</div>\n";
         
         return textoADevolver;

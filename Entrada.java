@@ -1,6 +1,9 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.net.URL;
 /**
  * Write a description of class Entrada here.
  * 
@@ -114,6 +117,8 @@ public abstract class Entrada
         textoADevolver += "<p>" + getCantidadmeGusta() + " me gusta" + "</p>\n";
         return textoADevolver;
     }
+    
+    
 
     
     
