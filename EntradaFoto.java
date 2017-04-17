@@ -18,6 +18,13 @@ public class EntradaFoto extends EntradaComentarios
         this.titulo = titulo;
     }
     
+    public EntradaFoto(String autor, int meGusta, int year, int month, int dayOfMonth, int hour, int minute, String url, String titulo, ArrayList comentarios)
+    {
+        super(autor, meGusta, year, month, dayOfMonth, hour, minute, comentarios);
+        this.titulo = titulo;
+        urlImagen = url;
+    }
+    
     
     public String getUrlImagen()
     {

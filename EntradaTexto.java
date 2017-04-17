@@ -21,6 +21,12 @@ public class EntradaTexto extends EntradaComentarios
         mensaje = texto;
     }
     
+    public EntradaTexto(String autor, int meGusta, int year, int month, int dayOfMonth, int hour, int minute, String texto, ArrayList comentarios)
+    {
+        super(autor, meGusta, year, month, dayOfMonth, hour, minute, comentarios);
+        mensaje = texto;
+    }
+    
     public String getMensaje()
     {
         return mensaje;
